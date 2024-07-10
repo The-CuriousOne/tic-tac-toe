@@ -62,70 +62,11 @@ function GameBoard() {
     for(let line of lines){
       const [a,b,c] = line;
       if(square[a] && square[b] && square[c] &&square[a] === square[b] && square[b] === square[c] ){
-        showLine(a,b,c);
         return square[a];
       }
     }
 
     return null;
-  }
-
-  const showLine = (a,b,c) =>{
-    const lineContainer = document.querySelector('.lines');
-    const lineElement = document.querySelector('.line');
-    lineContainer.style.zIndex = '10';
-    lineContainer.style.width = '400px';
-    lineContainer.style.height = '400px';
-    lineElement.style.display = 'block';
-
-    if(a === 0 && b === 1 && c === 2){
-      lineElement.style.transform = 'rotate(90deg)';
-      lineElement.style.top = '-31%';
-      lineElement.style.left = '50%';
-      lineElement.style.height = '400px';
-    }
-    else if(a === 3 && b === 4 && c === 5){
-      lineElement.style.transform = 'rotate(90deg)';
-      lineElement.style.top = '0%';
-      lineElement.style.left = '50%';
-      lineElement.style.height = '400px';
-    }
-    else if(a === 6 && b === 7 && c === 8 ){
-      lineElement.style.transform = 'rotate(90deg)';
-      lineElement.style.top = '31%';
-      lineElement.style.left = '50%';
-      lineElement.style.height = '400px';
-    }
-    else if(a === 0 && b === 3 && c === 6 ){
-      lineElement.style.transform = 'rotate(0deg)';
-      lineElement.style.left = '18.5%';
-      lineElement.style.top = '0%';
-      lineElement.style.height = '400px';
-    }
-    else if(a === 1 && b === 4 && c === 7 ){
-      lineElement.style.transform = 'rotate(0deg)';
-      lineElement.style.left = '49.25%';
-      lineElement.style.top = '0%';
-      lineElement.style.height = '400px';
-    }
-    else if(a === 2 && b === 5 && c === 8 ){
-      lineElement.style.transform = 'rotate(0deg)';
-      lineElement.style.left = '80%';
-      lineElement.style.top = '0%';
-      lineElement.style.height = '400px';
-    }
-    else if(a === 0 && b === 4 && c === 8 ){
-      lineElement.style.transform = 'rotate(135deg)';
-      lineElement.style.height = '500px';
-      lineElement.style.left = '49.25%';
-      lineElement.style.top = '-12.5%';
-    }
-    else if(a === 2 && b === 4 && c === 6 ){
-      lineElement.style.transform = 'rotate(45deg)';
-      lineElement.style.height = '500px';
-      lineElement.style.left = '49.25%';
-      lineElement.style.top = '-12.5%';
-    }
   }
 
   const resetGame = () => {
@@ -139,12 +80,6 @@ function GameBoard() {
     boxes.forEach((box) => {
       box.innerHTML = "";
     });
-
-    const lineContainer = document.querySelector(".lines");
-    const line = document.querySelector(".line");
-    lineContainer.style.zIndex = '-5';
-    line.style.display = 'none';
-    line.style.transform = 'rotate(0deg)';
   };
 
   return (
@@ -159,9 +94,6 @@ function GameBoard() {
           <h3 >X: {xScore}</h3>
           <h3 >O: {oScore}</h3>
         </div>
-      </div>
-      <div className="lines">
-        <div className="line"></div>
       </div>
       <div className="board">
         <div className="rows" id="row1">
